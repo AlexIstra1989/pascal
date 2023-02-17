@@ -1,5 +1,12 @@
 .header {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
  padding-top: rem(20);
+ height: rem(95);
+ z-index: 99999;
  // .header__container
  &__container {
   max-width: rem(1350);
@@ -73,16 +80,29 @@
  @media (max-width: $tablet) {
   display: block;  
  }
+ // .menu__icon-box 
+ &__icon-box {
+  width: rem(45);
+  height: rem(40);
+  box-shadow: 0px rem(4) rem(10) rgba(73, 93, 76, 0.15);
+  border-radius: rem(15);
+  background-color: $primaryColor;
+  position: relative;
+ }
  // .menu__icon
  &__icon {
   display: none;
   @media (max-width: $tablet) {
    display: block;
-   position: relative;
+   position: absolute;
    width: rem(30);
    height: rem(18);
    cursor: pointer;
    z-index: 5;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: transparent;
    span,
    &::before,
    &::after {
@@ -92,7 +112,7 @@
     position: absolute;
     width: 100%;
     height: rem(2);
-    background-color: $mainColor;
+    background-color: $btnColor;
    }
    &::before {
     top: 0;

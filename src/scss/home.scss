@@ -1,3 +1,122 @@
+.heading {
+ position: relative;
+ background-image: url("../img/heading/bg.jpg");
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: 10% 10%;
+ padding-bottom: rem(64);
+ @include adaptiveValue("padding-top", 170, 120);
+ @include adaptiveValue("padding-left", 135, 0);
+ @media (max-width: $mobileSmall) {
+  padding-left: 0;
+ }
+ // .heading__inner 
+ &__inner {
+  max-width: rem(525);
+  width: 100%;
+ }
+ // .heading__title
+ &__title {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 64, 34);
+  line-height: math.div(74, 64);
+  text-transform: capitalize;
+  margin-bottom: rem(20);
+  &_pseudo {
+   display: block;
+   position: relative;
+   @include adaptiveValue("padding-left", 200, 110);
+   &::before {
+    @include pseudo;
+    @include adaptiveValue("max-width", 148, 100);
+    width: 100%;
+    height: rem(3);
+    background-color: $secondaryColor;
+    left: 0;
+    top: 50%;
+   }
+  }
+  &_color {
+   display: block;
+   color: $secondaryColor;
+   letter-spacing: 0.03em;
+   text-transform: uppercase;
+  }
+ }
+ // .heading__text
+ &__text {
+  @include adaptiveValue("font-size", 22, 18);
+  line-height: math.div(32, 22);
+  color: $accentColor;
+  @include adaptiveValue("margin-bottom", 52, 30);
+ }
+ // .heading__info
+ &__info {
+  @include adaptiveValue("font-size", 16, 14);
+  display: flex;
+  @include adaptiveValue("gap", 70, 20);
+  color: $itemColor;
+  @include adaptiveValue("margin-bottom", 60, 30);
+  @media (max-width: $mobileSmall) {
+   flex-direction: column;
+  }
+ }
+ // .heading__location,
+ // .heading__phones
+ &__location,
+ &__phones {
+  padding-left: rem(50);
+  position: relative;
+  &::before {
+   @include pseudo;
+   width: rem(32);
+   height: rem(32);
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+  }
+ }
+ // .heading__location
+ &__location {
+  max-width: rem(205);
+  font-style: normal;
+  &::before {
+   @include background(url("../img/icons/location.svg"));
+   @media (max-width: $mobileSmall) {
+    width: rem(25);
+    height: rem(25);
+   }
+  }
+ }
+ // .heading__phones
+ &__phones {
+  &::before {
+   @include background(url("../img/icons/phone.svg"));
+   @media (max-width: $mobileSmall) {
+    display: none;
+   }
+  }
+  @media (max-width: $mobileSmall) {
+   display: flex;
+   @include adaptiveValue("gap", 34, 5);
+   padding-left: 0;
+  }
+ }
+ // .heading__phone
+ &__phone {
+  @media (max-width: $mobileSmall) {
+   position: relative; 
+   padding-left: rem(32);
+   &::before {
+    @include pseudo;
+    @include background(url("../img/icons/phone.svg"));
+    width: rem(25);
+    height: rem(25);
+    left: 0;
+   }
+  }
+ }
+}
 //====================================================================================================
 
 //====================================================================================================

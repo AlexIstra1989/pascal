@@ -6,7 +6,6 @@
  background-position: 10% 10%;
  padding-bottom: rem(64);
  @include adaptiveValue("padding-top", 170, 120);
- @include adaptiveValue("padding-left", 135, 0);
  @media (max-width: $mobileSmall) {
   padding-left: 0;
  }
@@ -34,6 +33,7 @@
     background-color: $secondaryColor;
     left: 0;
     top: 50%;
+    border-radius: rem(1.5);
    }
   }
   &_color {
@@ -118,5 +118,283 @@
  }
 }
 //====================================================================================================
-
+.services {
+ @include adaptiveValue("padding-top", 100, 30);
+ // .services__inner
+ &__inner {
+  display: flex;
+  justify-content: space-between;
+  @include adaptiveValue("gap", 100, 50);
+  @media (max-width: $tablet) {
+   flex-direction: column;
+  }
+ }
+ // .services__descr
+ &__descr {
+  flex: 0 0 100%;
+ }
+ //. services__body 
+ &__body {
+  width: 40%;
+  @media (max-width: $tablet) {
+   width: 100%;
+  }
+ }
+ // .services__title
+ &__title {
+  margin-bottom: rem(20);
+  span {
+   &::after {
+    @include pseudo;
+    @include adaptiveValue("max-width", 245, 100);
+    width: 100%;
+    height: rem(3);
+    background-color: $secondaryColor;
+    right: 0;
+    top: 50%;
+    border-radius: rem(1.5);
+   }
+  }
+ }
+ // .services__text
+ &__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(30);
+ }
+}
+//==================================================================
+.tabs {
+ max-width: rem(751);
+ width: 100%;
+ flex: 0 0 50%;
+ transform: translate(-110%, 0);
+ @media (max-width: $tablet) {
+  transform: none;
+  margin: 0 auto;
+ }
+ &__inner {
+  display: flex;
+  align-items: center;
+  min-height: rem(655);
+  @media (max-width: $tablet) {
+   flex-direction: column;
+  }
+ }
+ // .tabs__navigation
+ &__navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: $mobileBgColor;
+  border-radius: rem(45) 0px 0px rem(45);
+  height: rem(486);
+  max-width: rem(72);
+  width: 100%;
+  @media (max-width: $tablet) {
+   flex-direction: row;
+   height: rem(65);
+   max-width: 90%;
+   border-radius: rem(45) rem(45) 0 0;
+  }
+ }
+ // .tabs__title
+ &__title {
+  @include adaptiveValue("font-size", 16, 13);
+  max-width: rem(65);
+  width: 100%;
+  height: rem(233);
+  background-color: $primaryColor;
+  padding-top: rem(48);
+  &._tab-active {
+   background-color: $btnColor;
+   color: $primaryColor;
+  }
+  &_ventilation {
+   border-top-left-radius: rem(40);
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/icons/vent.svg"));
+    width: rem(33);
+    height: rem(33);
+    right: 20%;
+    top: 5%;
+    @media (max-width: $tablet) {
+     top: 20%;
+     right: 10%;
+    }
+    @media (max-width: $mobile) {
+     display: none;
+    }
+   }
+  }
+  &_air {
+   border-bottom-left-radius: rem(40);
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/icons/conditioning.svg"));
+    width: rem(33);
+    height: rem(33);
+    top: 5%;
+    right: 20%;
+    @media (max-width: $tablet) {
+     top: 20%;
+     right: 10%;
+    }
+    @media (max-width: $mobile) {
+     display: none;
+    }
+   }
+   @media (max-width: $tablet) {
+    border-bottom-left-radius: rem(0);
+    border-top-right-radius: rem(40);
+   }
+  }
+  span {
+   writing-mode: vertical-lr;
+   transform: rotate(-180deg);
+  }
+  @media (max-width: $tablet) {
+   height: rem(60);
+   max-width: 49%;
+   padding-top: 0;
+   span {
+    writing-mode: horizontal-tb;
+    transform: rotate(0);
+   }
+  }
+ }
+ // .tabs__content
+ &__content {
+  height: auto;
+  width: 100%;
+ }
+}
+//======================================================================
+.body-tabs {
+ height: 100%;
+ // .body-tabs__inner
+ &__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $mobileBgColor;
+  border-radius: rem(45) 0px 0px rem(45);
+  height: 100%;
+  gap: rem(10);
+  @media (max-width: $tablet) {
+   flex-direction: column;
+   border-radius: rem(45);
+  }
+ }
+ // .body-tabs__list
+ &__list {
+  display: flex;
+  flex-direction: column;
+  gap: rem(25);
+  @include adaptiveValue("padding-left", 40, 10);
+  padding: rem(20) 0;
+ }
+ // .body-tabs__item
+ &__item {
+  @include adaptiveValue("font-size", 20, 16);
+  line-height: math.div(30, 20);
+  display: flex;
+  align-items: center;
+  gap: rem(15);
+ }
+ // .body-tabs__item-pseudo
+ &__item-pseudo {
+  max-width: rem(34);
+  width: 100%;
+  height: rem(34);
+  background-color: $primaryColor;
+  border-radius: rem(10);
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/curve.svg"));
+   width: rem(20);
+   height: rem(20);
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+  }
+  &_2::before {
+   @include background(url("../img/icons/fan.svg"));
+  }
+  &_3::before {
+   @include background(url("../img/icons/extractor.svg"));
+   width: rem(22);
+   height: rem(21);
+  }
+  &_4::before {
+   @include background(url("../img/icons/humidity.svg"));
+   width: rem(18);
+   height: rem(18);
+  }
+  &_5::before {
+   @include background(url("../img/icons/air-cooler.svg"));
+   height: rem(14);
+  }
+  &_6::before {
+   @include background(url("../img/icons/ac-vent.svg"));
+  }
+  &_8::before {
+   @include background(url("../img/icons/air-conditioner.svg"));
+   height: rem(14);
+  }
+  &_9::before {
+   @include background(url("../img/icons/split.svg"));
+   height: rem(18);
+  }
+  &_10::before {
+   @include background(url("../img/icons/condenser.svg"));
+   width: rem(22);
+  }
+  &_11::before {
+   @include background(url("../img/icons/ceiling.svg"));
+  }
+  &_12::before {
+   @include background(url("../img/icons/air-filter.svg"));
+   width: rem(16);
+  }
+ }
+ // .body-tabs__image
+ &__image {
+  filter: drop-shadow(-4px 0px 8px rgba(15, 44, 15, 0.35));
+  max-width: rem(240);
+  width: 100%;
+  height: 100%; 
+  img {
+   width: 100%;
+   height: 100%;
+  }
+  @media (max-width: $tablet) {
+   max-width: 100%;
+  }
+ }
+ // .body-tabs__image-vent
+ &__image-vent {
+  @media (max-width: $tablet) {
+   content: url("img/services/tab-1.2.png");
+  }
+  @media (min-width: $tablet) {
+   content: url("img/services/tab-1.png");
+  }
+ }
+  // .body-tabs__image-condit
+  &__image-condit {
+   @media (max-width: $tablet) {
+    content: url("img/services/tab-2.2.png");
+   }
+   @media (min-width: $tablet) {
+    content: url("img/services/tab-2.png");
+   }
+  }
+}
 //====================================================================================================
+

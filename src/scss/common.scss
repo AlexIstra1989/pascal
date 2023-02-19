@@ -1,11 +1,25 @@
 // Заголовки, общие БЄМ блоки и проче...
+.title {
+ @extend %ruberoid-medium;
+ @include adaptiveValue("font-size", 45, 28);
+ line-height: math.div(60, 45);
+ text-transform: capitalize;
+ color: $mainColor;
+ max-width: max-content;
+ span {
+  display: block;
+  position: relative;
+ }
+}
 
 
 
 
 
 
-
+.block {
+ @include adaptiveValue("padding-bottom", 100, 30);
+}
 
 .btn-box {
  background: rgba(120, 192, 129, 0.25);

@@ -1,7 +1,7 @@
 // Заголовки, общие БЄМ блоки и проче...
 .title {
  @extend %ruberoid-medium;
- @include adaptiveValue("font-size", 45, 28);
+ @include adaptiveValue("font-size", 45, 26);
  line-height: math.div(60, 45);
  text-transform: capitalize;
  color: $mainColor;

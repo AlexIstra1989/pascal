@@ -496,3 +496,224 @@
   line-height: math.div(21, 16);
  }
 }
+//=========================================================================
+.process {
+ // .process__inner
+ &__inner {
+  display: flex;
+  flex-direction: column;
+  @include adaptiveValue("gap", 84, 40);
+ }
+ // .process__top
+ &__top {
+  display: flex;
+  align-items: center;
+  @include adaptiveValue("gap", 90, 20);
+  @media (max-width: $tablet) {
+   display: block;
+  }
+ }
+ // .process__title
+ &__title {
+  flex: 0 1 50%;
+  span {
+   &::after {
+    @include pseudo;
+    @include adaptiveValue("max-width", 100, 50);
+    width: 100%;
+    height: rem(3);
+    background-color: $secondaryColor;
+    right: 0;
+    top: 50%;
+    border-radius: rem(1.5);
+   }
+  }
+ }
+ // .process__list
+ &__list {
+  flex: 0 1 50%;
+ }
+ // .process__list-name
+ &__list-name {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 26, 20);
+  margin-bottom: rem(12);
+  color: $secondaryColor;
+ }
+ // .process__item
+ &__item {
+  color: $accentColor;
+  padding-left: rem(27);
+  position: relative; 
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/flower.svg"));
+   top: rem(5);
+   left: 0;
+   width: rem(17);
+   height: rem(17);
+  }
+ }
+}
+//=====================================================================
+.schematic {
+ display: flex;
+ justify-content: center;
+ @media (max-width: $tablet) {
+  flex-direction: column;
+  gap: rem(40);
+ }
+ // .schematic__items
+ &__items {
+  display: flex;
+  justify-content: space-between;
+  max-width: rem(950);
+  width: 100%;
+  @media (max-width: $mobile) {
+   flex-direction: column;
+   align-items: center;
+   gap: rem(40);
+  }
+ }
+ // .schematic__item
+ &__item {
+  max-width: rem(170);
+  width: 100%;
+  height: rem(150);
+  text-align: center;
+  position: relative;
+  &::before {
+   @include pseudo;
+   left: -145%;
+   top: 10%;
+   width: rem(268);
+   height: rem(45);
+   @media (max-width: $tablet) {
+    width: rem(170);
+    left: -110%;
+   }
+   @media (max-width: 880px) {
+    width: rem(120);
+    left: -110%;
+   }
+  }
+  &_desire::before {
+   @include background(url("../img/process/arrow-1.svg"));
+   @media (max-width: $mobile) {
+    width: rem(210);
+    height: rem(36);
+    transform: rotate(14deg);
+    top: -10%;
+   }
+  }
+  &_apply {
+   @media (max-width: $mobile) {
+    margin-left: 15%;
+   }
+   &::before {
+    @include background(url("../img/process/arrow-2.svg"));
+    height: rem(35);
+    @media (max-width: $tablet) {
+     height: rem(23);
+    }
+    @media (max-width: 880px) {
+     height: rem(15.5);
+     left: -80%;
+    }
+    @media (max-width: $mobile) {
+     @include background(url("../img/process/arrow-5.svg"));
+     width: rem(135);
+     height: rem(177);
+     left: 55%;
+     top: -95%;
+    }
+    @media (max-width: 600px) {
+     width: rem(100);
+     height: rem(129);
+     left: 70%;
+    }
+   }
+  }
+  &_realiz {
+   @media (max-width: $mobile) {
+    margin-right: 20%;
+   }
+   &::before {
+    @include background(url("../img/process/arrow-3.svg"));
+    height: rem(35);
+    top: 40%;
+    @media (max-width: $tablet) {
+     height: rem(22);
+    }
+    @media (max-width: 880px) {
+     height: rem(16);
+     left: -80%;
+    }
+    @media (max-width: $mobile) {
+     @include background(url("../img/process/arrow-6.svg"));
+     width: rem(163);
+     height: rem(166);
+     top: -80%;
+     left: -16%;
+    }
+    @media (max-width: 600px) {
+     width: rem(128);
+     height: rem(130);
+     left: -24%;
+    }
+   }
+  } 
+  &_realiz::after {
+   @include pseudo;
+   @include background(url("../img/process/arrow-4.svg"));
+   right: -145%;
+   top: -29%;
+   width: rem(287);
+   height: rem(58);
+   @media (max-width: $tablet) {
+    display: none;
+   }
+   @media (max-width: $mobile) {
+    display: block;
+    transform: rotate(200deg);
+    left: 95%;
+    top: 50%;
+   }
+  }
+ }
+ // .schematic__circle
+ &__circle { 
+  max-width: rem(100);
+  width: 100%;
+  height: rem(100);
+  background-color: $mobileBgColor;
+  border-radius: 50%;
+  margin: 0 auto rem(20);
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/desire.svg"));
+   width: rem(49);
+   height: rem(59);
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+  }
+  &_apply::before {
+   @include background(url("../img/icons/apply.svg"));
+   width: rem(42);
+   height: rem(57);
+  }
+  &_realiz::before {
+   @include background(url("../img/icons/real.svg"));
+   width: rem(50);
+   height: rem(50);
+  }
+ }
+ // .schematic__name
+ &__name {
+  @extend %proxi-semibold;
+  @include adaptiveValue("font-size", 24, 18);
+  line-height: math.div(30, 24);
+ }
+}

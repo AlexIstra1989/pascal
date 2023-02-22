@@ -717,3 +717,90 @@
   line-height: math.div(30, 24);
  }
 }
+//=======================================================================
+.feedback {
+ background-image: url("../img/feedback/bg.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ @include adaptiveValue("padding-top", 55, 30);
+ @include adaptiveValue("padding-bottom", 55, 30);
+ position: relative;
+ &::before {
+  @include pseudo;
+  background-image: url("../img/feedback/pseudo.png");
+  width: rem(209);
+  height: rem(236);
+  right: 0;
+  top: 0;
+ }
+ // .feedback__title
+ &__title {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 35, 28);
+  line-height: math.div(45, 35);
+  margin-bottom: rem(30);
+  z-index: 8888;
+  position: relative;
+ }
+ // .feedback__form
+ &__form {
+  display: flex;
+  align-items: center;
+  gap: rem(60);
+  @media (max-width: $mobile) {
+   flex-direction: column;
+  }
+ }
+ // .feedback__fields
+ &__fields {
+  display: flex;
+  gap: rem(30);
+  flex: 0 1 52.2%;
+  z-index: 444;
+  @media (max-width: $mobile) {
+   flex-direction: column;
+   width: 100%;
+  }
+ }
+ // .feedback__field
+ &__field {
+  flex: 0 1 53%;
+  padding: rem(20);
+  background-color: $primaryColor;
+  border-radius: rem(15);
+  box-shadow: 0px 0px 12px rgba(73, 93, 76, 0.15);
+  border: rem(1) solid transparent;
+  cursor: pointer;
+  transition: all 0.7s;
+  &::placeholder {
+   font-size: rem(14);
+   line-height: math.div(17, 14);
+   color: rgba(124, 163, 129, 0.7);
+  }
+  &:hover {
+   border-color: $btnColor;
+  }
+  &:focus {
+   border-color: $secondaryColor;
+  }
+ }
+ // .feedback__btn-box
+ &__btn-box {
+  max-width: rem(229);
+  width: 100%;
+  height: rem(75);
+  @media (max-width: $mobileSmall) {
+   max-width: 100%;
+  }
+ }
+ // .feedback__btn
+ &__btn {
+  max-width: rem(209);
+  width: 90%;
+  padding: rem(15);
+  @media (max-width: $mobileSmall) {
+   max-width: 100%;
+  }
+ }
+}

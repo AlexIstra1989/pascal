@@ -804,3 +804,119 @@
   }
  }
 }
+//===================================================================
+.about {
+ @include adaptiveValue("padding-top", 100, 30);
+ // .about__inner
+ &__inner {
+  display: flex;
+  align-items: center;
+  @include adaptiveValue("gap", 100, 20);
+  @media (max-width: $tablet) {
+   flex-direction: column;
+  }
+ }
+ // .about__content
+ &__content {
+  flex: 0 1 45.3%;
+  background-color: #FFF;
+  box-shadow: 0px 0px 10px rgb(73 93 76 / 10%);
+  border-radius: 50px;
+  padding: 33px 44px;
+  position: relative; 
+  &::before {
+   @include pseudo;
+   background: rgba(186, 255, 195, 0.5);
+   top: 10%;
+   left: -20%;
+   right: 0;
+   bottom: 0;
+   filter: blur(100px);
+   height: 90%;
+   width: 130%;
+   z-index: -1;
+  }
+ }
+ // .about__title
+ &__title {
+  margin-bottom: rem(20);
+  span {
+   &::after {
+    @include pseudo;
+    @include adaptiveValue("max-width", 166, 90);
+    width: 100%;
+    height: rem(3);
+    background-color: $secondaryColor;
+    right: 0;
+    top: 50%;
+    border-radius: rem(1.5);
+   }
+  }
+ }
+ // .about__text
+ &__text {
+  display: flex;
+  flex-direction: column;
+  gap: rem(20);
+ }
+ // .about__items
+ &__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  @include adaptiveValue("gap", 79, 30);
+  flex: 0 1 45%;
+  @media (max-width: $tablet) {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+  }
+ }
+ // .about__item
+ &__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: rem(122);
+  &::before {
+   @include pseudo;
+   background: rgba(186, 255, 195, 0.3);
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   filter: blur(30px);
+   height: 100%;
+   width: rem(122);
+   border-radius: 50%;
+  }
+  @media (max-width: $tablet) {
+   &:nth-child(odd) {
+    margin-left: -30%;
+   }
+   &:nth-child(even) {
+    margin-left: 30%;
+   }
+  }
+ }
+ // .about__item-title
+ &__item-title {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 24, 20);
+  line-height: math.div(35, 26);
+  margin-bottom: rem(15);
+  color: $secondaryColor;
+  span {
+   @include adaptiveValue("font-size", 33, 29);
+   line-height: math.div(47, 35);
+  }
+ }
+ // .about__item-text
+ &__item-text {
+  color: $accentColor;
+  line-height: math.div(26, 16);
+  max-width: rem(198);
+  width: 100%;
+ }
+}

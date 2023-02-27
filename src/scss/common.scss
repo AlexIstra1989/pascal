@@ -23,6 +23,9 @@
  width: 100%;
  height: rem(115);
  position: relative;
+ @media (max-width: $mobileSmall) {
+  height: rem(90);
+ }
 }
 
 .btn {
@@ -47,5 +50,8 @@
  transition: all 0.7s;
  &:hover {
   background-color: $btnActiveColor;
+ }
+ @media (max-width: $mobileSmall) {
+  padding: rem(20);
  }
 }

@@ -1023,3 +1023,206 @@
   }
  }
 }
+//==========================================================================
+.scheme {
+ // .scheme__title
+ &__title {
+  margin-bottom: rem(15);
+ }
+ // .scheme__items
+ &__items {
+  display: flex;
+  flex-direction: column;
+ }
+ // .scheme__item
+ &__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  &::after {
+   @media (max-width: $mobile) {
+    display: none !important;
+   }
+  }
+  @media (max-width: $mobile) {
+   &:not(:last-child) {
+    margin-bottom: rem(30);
+   }
+  }
+  @media (max-width: $mobileSmall) {
+   display: block;
+   background-size: 50%;
+   background-position: center left;
+  }
+  // .scheme__item_requests
+  &_requests {
+   max-width: rem(474);
+   width: 100%;
+   @include adaptiveValue("min-height", 300, 112);
+   background-image: url("../img/scheme/item-1.png");
+   background-position: right;
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/scheme/pseudo-1.png"));
+    width: rem(527);
+    height: rem(78);
+    left: 25%;
+    bottom: 0;
+    @media (max-width: $tablet) {
+     max-width: rem(400);
+     left: 10%;
+     bottom: -15%;
+     transform: rotate(15deg);
+    }
+   }
+   @media (max-width: $mobileSmall) {
+    background-size: contain;
+   }
+  }
+  // .scheme__item_consalt
+  &_consalt {
+   max-width: rem(540);
+   width: 100%;
+   @include adaptiveValue("min-height", 272, 124);
+   background-image: url("../img/scheme/consalt.png");
+   margin-left: auto;
+   margin-top: rem(-120);
+   text-align: right;
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/scheme/pseudo-2.png"));
+    width: rem(527);
+    height: rem(78);
+    left: -70%;
+    bottom: -20%;
+    @media (max-width: $tablet) {
+     max-width: rem(200);
+     left: -15%;
+     bottom: -30%;
+     transform: rotate(-30deg);
+    }
+   }
+   @media (max-width: 1050px) {
+    margin-top: 0;
+   }   
+  }
+  // .scheme__item_visit
+  &_visit {
+   max-width: rem(496);
+   width: 100%;
+   @include adaptiveValue("min-height", 254, 113);
+   background-image: url("../img/scheme/visit.png");
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/scheme/pseudo-3.png"));
+    width: rem(219);
+    height: rem(95);
+    right: -7%;
+    bottom: -28%;
+   }
+   @media (max-width: $mobileSmall) {
+    background-position: right;
+    background-size: contain;
+   }
+  }
+  // .scheme__item_schedule
+  &_schedule {
+   max-width: rem(625);
+   width: 100%;
+   @include adaptiveValue("min-height", 274, 125);
+   background-image: url("../img/scheme/schedule.png");
+   background-position: 30%;
+   margin-top: rem(-120);
+   margin-left: auto;
+   text-align: right;
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/scheme/pseudo-4.png"));
+    width: rem(587);
+    height: rem(139);
+    left: -30%;
+    bottom: -42%;
+    @media (max-width: $tablet) {
+     max-width: rem(350);
+     left: -23%;
+     bottom: -45%;
+     transform: rotate(-23deg);
+    }
+   }
+   @media (max-width: 1050px) {
+    margin-top: 0;
+   }
+   @media (max-width: $mobileSmall) {
+    background-size: contain;
+    background-position: left;
+   }
+  }
+  // .scheme__item_contract
+  &_contract {
+   max-width: rem(450);
+   width: 100%;
+   @include adaptiveValue("min-height", 300, 107);
+   background-image: url("../img/scheme/contract.png");
+   position: relative;
+   &::after {
+    @include pseudo;
+    @include background(url("../img/scheme/pseudo-5.png"));
+    width: rem(698);
+    height: rem(165);
+    right: -75%;
+    bottom: -53%;
+    @media (max-width: $tablet) {
+     max-width: rem(350);
+     left: 40%;
+     bottom: -45%;
+    }
+   }
+   @media (max-width: $mobileSmall) {
+    background-position: right;
+    background-size: contain;
+   }
+  }
+  // .scheme__item_delivery
+  &_delivery {
+   max-width: rem(576);
+   width: 100%;
+   @include adaptiveValue("min-height", 190, 103);
+   background-image: url("../img/scheme/delivery.png");
+   margin-top: rem(-50);
+   @include adaptiveValue("margin-bottom", 70, 30);
+   margin-left: auto;
+   text-align: right;
+   @media (max-width: 1050px) {
+    margin-top: 0;
+   }
+  }
+  // .scheme__item_signing
+  &_signing {
+   max-width: rem(722);
+   width: 100%;
+   min-height: rem(100);
+   background-image: url("../img/scheme/signing.png");
+   background-position: center;
+   margin: 0 auto;
+   text-align: center;
+   @media (max-width: $mobileSmall) {
+    background-size: cover;
+   }
+  }
+ }
+ // .scheme__item-name
+ &__item-name {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 35, 24);
+  line-height: math.div(47, 35);
+  color: $secondaryColor;
+  @include adaptiveValue("margin-bottom", 15, 12);
+ }
+}

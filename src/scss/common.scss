@@ -55,3 +55,15 @@
   padding: rem(20);
  }
 }
+
+.clients-button-prev,
+.clients-button-next {
+ @include background(url("../img/icons/arrow-swiper.svg"));
+ width: rem(28);
+ height: rem(28);
+ transform: rotate(180deg);
+}
+
+.clients-button-next {
+ transform: rotate(0deg);
+}

@@ -1,3 +1,187 @@
+.footer {
+ background-image: url("../img/footer-bg.jpg");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: cover;
+ @include adaptiveValue("padding-top", 90, 30);
+ @include adaptiveValue("padding-bottom", 90, 30);
+ // .footer__inner
+ &__inner {
+  display: flex;
+  @include adaptiveValue("gap", 105, 20);
+  @media (max-width: 950px) {
+   flex-wrap: wrap;
+  }
+  @media (max-width: $mobile) {
+    flex-direction: column; 
+  }
+ }
+ // .footer__content
+ &__content {
+  flex: 0 1 48.3%;
+ }
+ // .footer__logo
+ &__logo {
+  display: block;
+  max-width: rem(352);
+  width: 100%;
+  margin-bottom: rem(30);
+  img {
+   width: 100%;
+  }
+ }
+ // .footer__text
+ &__text {
+  font-size: rem(14);
+  line-height: math.div(24, 14);
+  color: $accentColor;
+  padding-bottom: rem(25);
+  margin-bottom: rem(25);
+  position: relative;
+  &::after {
+   @include pseudo;
+   background-color: $secondaryColor;
+   width: 100%;
+   height: rem(1);
+   border-radius: rem(1.5);
+   bottom: 0;
+  }
+  span {
+   @extend %proxi-bold;
+  }
+ }
+ // .footer__slogan
+ &__slogan {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 18, 15);
+  line-height: math.div(24, 18);
+  span {
+   @include adaptiveValue("font-size", 22, 18);
+   line-height: math.div(30, 22);
+   color: $secondaryColor;
+  }
+ }
+ // .footer__time-work
+ &__time-work {
+  font-size: rem(14);
+  line-height: math.div(20, 14);
+  padding-left: rem(35);
+  max-width: rem(165);
+  width: 100%;
+  margin-bottom: rem(15);
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/calendar.svg"));
+   width: rem(22);
+   height: rem(22);
+   left: 0;
+   top: 0;
+  }
+ }
+ // .footer__location
+ &__location {
+  font-size: rem(14);
+  line-height: math.div(20, 14);
+  padding-left: rem(35);
+  max-width: rem(220);
+  width: 100%;
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/location.svg"));
+   width: rem(24);
+   height: rem(31);
+   left: 0;
+   top: 0;
+  }
+ }
+}
+//=========================================================================
+.contacts {
+ flex: 0 1 30.3%;
+ // .contacts__title
+ &__title {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 26, 20);
+  line-height: math.div(35, 26);
+  margin-bottom: rem(10);
+ }
+ // .contacts__list
+ &__list {
+  margin-bottom: rem(25);
+ }
+ // .contacts__item
+ &__item {
+  padding: rem(15) 0 rem(15) rem(35);
+  border-bottom: rem(1) solid $secondaryColor;
+  @media (max-width: $mobile) {
+   border: none;
+  }
+ }
+ // .contacts__phone
+ &__phone {
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/phone.svg"));
+   width: rem(22);
+   height: rem(22);
+   left: rem(-35);
+   top: 0;
+  }
+ }
+ // .contacts__email
+ &__email {
+  position: relative;
+  &::before {
+   @include pseudo;
+   @include background(url("../img/icons/message.svg"));
+   left: rem(-35);
+   top: 0;
+   width: rem(24);
+   height: rem(18);
+  }
+ }
+}
 //====================================================================================================
-
-//====================================================================================================
+.query {
+ flex: 0 1 34%;
+ // .query__title
+ &__title {
+  @extend %ruberoid-medium;
+  @include adaptiveValue("font-size", 26, 20);
+  line-height: math.div(35, 26);
+  margin-bottom: rem(25);
+ }
+ // .query__field
+ &__field {
+  width: 100%;
+  box-shadow: 0px 0px rem(10) rgba(73, 93, 76, 0.1);
+  border-radius: rem(15);
+  padding: rem(15);
+  margin-bottom: rem(20);
+  &::placeholder {
+   font-size: rem(14);
+   line-height: math.div(17, 14);
+  }
+ }
+ // .query__btn-box
+ &__btn-box {
+  max-width: rem(229);
+  width: 100%;
+  height: rem(75);
+  @media (max-width: $mobileSmall) {
+   max-width: 100%;
+  }
+ }
+ // .query__btn
+ &__btn {
+  max-width: rem(209);
+  width: 100%;
+  padding: rem(18);
+  @media (max-width: $mobileSmall) {
+   max-width: 90%;
+  }
+ }
+}

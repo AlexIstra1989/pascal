@@ -1314,7 +1314,6 @@
  background-image: url("../img/clients/bg.png");
  background-repeat: no-repeat;
  background-size: cover;
- @include adaptiveValue("margin-bottom", 100, 20);
  @media (max-width: $tablet) {
   display: block;
   padding-top: rem(70);
